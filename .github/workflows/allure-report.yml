@@ -3,8 +3,6 @@ name: Allure Report
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   test:
@@ -12,6 +10,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Set up Docker Compose
+      run: |
+        docker-compose up -d --build
+        sleep 60 
 
     - name: Set up Python
       uses: actions/setup-python@v4
