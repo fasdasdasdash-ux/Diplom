@@ -17,7 +17,7 @@ class PaymentPage:
         self.driver.find_element(By.CSS_SELECTOR, "input.input__control[placeholder='999']").send_keys(cvc)
 
     def click_submit(self):
-        self.driver.find_element(By.CSS_SELECTOR, ".button").click()
+        self.driver.find_element(By.XPATH, "//button[contains(., 'Продолжить')]").click()
 
     def get_success_message(self):
         return self.wait.until(EC.visibility_of_element_located(
