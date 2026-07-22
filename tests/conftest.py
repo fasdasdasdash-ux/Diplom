@@ -12,3 +12,23 @@ def driver():
     driver.implicitly_wait(10)
     yield driver
     driver.quit()
+
+@pytest.fixture
+def approved_card():
+    return {
+        "number": "4444 4444 4444 4441",
+        "month": "12",
+        "year": "26",
+        "owner": "Ivanov Ivan",
+        "cvc": "123"
+    }
+
+@pytest.fixture
+def declined_card():
+    return {
+        "number": "4444 4444 4444 4442",
+        "month": "12",
+        "year": "26",
+        "owner": "Ivanov Ivan",
+        "cvc": "123"
+    }
